@@ -1,5 +1,7 @@
 # needs:  pip install --upgrade pip enum34
 from enum import Enum
+import cairo
+from renderers.chord import Chord
 
 C = 'C'
 C_SHARP = 'C#'
@@ -166,3 +168,22 @@ def getChordDiagramData(note, chordType, scale = scales['Ionian'], tuning = tuni
 
 #cChord = getChord(notes['C'])
 #print(cChord)
+
+def main():
+    ps = cairo.SVGSurface("chord.svg", 200, 200)
+    cr = cairo.Context(ps)
+
+    chord = getChordDiagramData(allNotesDefinitions['C'], ChordTypes.Major)
+    renderer = Chord(chord, cr)
+    renderer.draw()
+
+    #cr.set_source_rgb(0,0,0)
+    #cr.select_font_face('Sans', cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
+    #cr.set_font_size(40)
+
+    #cr.move_to(10,50)
+    #cr.show_text("TEST TXT")
+    cr.show_page()
+
+if __name__ == "__main__":
+    main()

@@ -1,3 +1,6 @@
+# deprecated tests. 
+# the code is being refactored and these tests should go on separetad files
+
 import unittest
 from main import getNotePositionInScale, allNotesDefinitions, getNoteAtPosition, getNoteDistance, getNoteDistance, getChordNotes, ChordTypes, getNoteWithTonalDistanceFromNote, getChordDiagramData
 

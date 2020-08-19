@@ -66,6 +66,8 @@ help: ##@other Show this help.
 
 
 test: ##@development Run all tests
+	#( cd tests && python -m unittest tests)
 	python -m unittest tests
+	( cd tests && python -m unittest notes)
 .PHONY: test
 
